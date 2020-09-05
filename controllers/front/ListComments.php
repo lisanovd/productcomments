@@ -63,7 +63,7 @@ class ProductCommentsListCommentsModuleFrontController extends ModuleFrontContro
             $productComment['date_add'] = $dateFormatter->format($dateAdd);
 
             if($isLastNameAnynomus) {
-                $productComment['lastname'] = substr($productComment['lastname'], 0, 1) . '.';
+                $productComment['lastname'] = mb_substr($productComment['lastname'], 0, 1) . '.';
             }
 
             $usefulness = $productCommentRepository->getProductCommentUsefulness($productComment['id_product_comment']);
